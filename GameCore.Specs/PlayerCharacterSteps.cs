@@ -113,5 +113,17 @@ namespace GameCore.Specs
             Assert.Equal(expectedPower, _player.MagicalPower);
         }
 
+        [Given(@"I last slept (.* days ago)")]
+        public void GivenILastSleptDaysAgo(DateTime lastSlept)
+        {
+            _player.LastSleepTime = lastSlept;
+        }
+
+        [When(@"I read a restore health scroll")]
+        public void WhenIReadARestoreHealthScroll()
+        {
+            _player.ReadHealthScroll();
+        }
+
     }
 }
