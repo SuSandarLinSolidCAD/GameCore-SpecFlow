@@ -125,5 +125,17 @@ namespace GameCore.Specs
             _player.ReadHealthScroll();
         }
 
+        [Given(@"I have the following weapons")]
+        public void GivenIHaveTheFollowingWeapons(IEnumerable<Weapon> weapons)
+        {
+            _player.Weapons.AddRange(weapons);
+        }
+
+        [Then(@"My weapons should be worth (.*)")]
+        public void ThenMyWeaponsShouldBeWorth(int value)
+        {
+            Assert.Equal(value, _player.WeaponsValue);
+        }
+
     }
 }
